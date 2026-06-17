@@ -203,6 +203,23 @@
     .format-link { color: var(--stone); font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 5px; margin-top: 6px; transition: color 0.2s; }
     .format-link:hover { color: #fff; }
 
+    /* ── Escassez Mentoria VIP ── */
+    .scarcity-pro {
+      margin-top: 28px;
+      border: 1px solid rgba(226,213,195,0.36);
+      background: rgba(226,213,195,0.10);
+      border-radius: 22px; padding: 20px 24px;
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+      color: rgba(245,244,239,0.88); font-size: 14px; line-height: 1.6;
+    }
+    .scarcity-icon { font-size: 20px; flex-shrink: 0; color: var(--stone); }
+    .scarcity-pro div { flex: 1; min-width: 240px; }
+    .scarcity-pro strong { color: var(--stone); display: block; margin-bottom: 4px; font-size: 15px; }
+    @media (max-width: 620px) {
+      .scarcity-pro { flex-direction: column; align-items: flex-start; }
+      .scarcity-pro .btn { align-self: stretch; text-align: center; }
+    }
+
     /* ── Accordion cursos ── */
     .accordion { display: grid; gap: 8px; margin-top: 32px; }
     .acc-item { border: 1px solid rgba(226,213,195,0.24); background: rgba(245,244,239,0.06); border-radius: 20px; overflow: hidden; }
@@ -445,6 +462,16 @@
           </div>
           <a class="format-link" href="https://wa.me/556798186603?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20sobre%20os%20cursos%20da%20Dra.%20Mariana%20Leite." target="_blank" rel="noopener" data-event="whatsapp_cursos">Falar sobre cursos →</a>
         </article>
+      </div>
+
+      <!-- Escassez Mentoria VIP -->
+      <div class="scarcity-pro">
+        <span class="scarcity-icon">⌁</span>
+        <div>
+          <strong>Mentoria VIP: apenas 4 a 5 vagas por ano.</strong>
+          <span>O formato individual exige agenda dedicada. As datas são organizadas com antecedência — entre em contato antes que a agenda feche.</span>
+        </div>
+        <a class="btn btn-cta" href="https://wa.me/556798186603?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Mentoria%20VIP%20da%20Dra.%20Mariana%20Leite%20e%20quero%20verificar%20disponibilidade." target="_blank" rel="noopener" data-event="whatsapp_scarcity_mentoria">Verificar disponibilidade</a>
       </div>
 
       <!-- Accordion detalhes -->
