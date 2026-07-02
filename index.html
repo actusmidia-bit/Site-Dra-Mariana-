@@ -127,6 +127,8 @@
   }
   </script>
 
+  <link rel="canonical" href="https://dramarileite.com.br/" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -536,6 +538,27 @@
     .float-whatsapp:hover { transform: translateY(-2px); }
     .whatsapp-icon { width: 26px; height: 26px; display: block; flex-shrink: 0; }
 
+    /* ── Banner LGPD ── */
+    .lgpd-banner {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(75,66,58,0.97); backdrop-filter: blur(8px);
+      border-top: 1px solid rgba(226,213,195,0.20);
+      padding: 16px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; flex-wrap: wrap;
+      color: rgba(245,244,239,0.85); font-size: 13px; line-height: 1.6;
+    }
+    .lgpd-banner.hidden { display: none; }
+    .lgpd-banner p { flex: 1; min-width: 240px; margin: 0; }
+    .lgpd-banner p a { color: var(--stone); text-decoration: underline; text-underline-offset: 3px; }
+    .lgpd-accept {
+      background: var(--green-main); color: #F5F4EF;
+      border: none; border-radius: 999px; padding: 10px 22px;
+      font-size: 13px; font-weight: 600; cursor: pointer;
+      white-space: nowrap; flex-shrink: 0; transition: background 0.2s;
+    }
+    .lgpd-accept:hover { background: var(--green-deep); }
+
     /* ── Animações ── */
     .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.60s ease, transform 0.60s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
@@ -550,7 +573,7 @@
       .consultation-steps { grid-template-columns: 1fr 1fr; }
       .image-frame { min-height: 480px; }
       .contact-card { padding: 36px; }
-      .reviews-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     /* ── Responsive 620px ── */
@@ -563,25 +586,24 @@
       .results-grid { grid-template-columns: 1fr; }
       .contact-card { padding: 26px; border-radius: 28px; }
       .brand-name { font-size: 21px; }
-      .float-whatsapp { min-width: 52px; width: 52px; padding: 0; }
-      .float-whatsapp .wa-label { display: none; }
+      .float-whatsapp { min-width: auto; width: auto; padding: 0 16px; }
+      .float-whatsapp .wa-label { display: inline; font-size: 13px; }
       .about-photo { min-height: 340px; }
       .sp-sep { display: none; }
       .sp-item { padding: 5px 14px; font-size: 12px; }
     }
   </style>
 
-  <!-- Meta Pixel placeholder -->
-  <!--
+  <!-- Meta Pixel — substitua META_PIXEL_ID pelo ID real antes de ativar -->
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
     n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
     (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init','META_PIXEL_ID');fbq('track','PageView');
+    fbq('init','META_PIXEL_ID');
+    fbq('track','PageView');
   </script>
-  -->
 </head>
 <body>
 <div class="page">
@@ -722,6 +744,22 @@
         </div>
       </div>
     </section>
+
+    <!-- FAIXA LISTA DE TRANSMISSÃO -->
+    <div class="broadcast-strip">
+      <div class="container broadcast-inner">
+        <div class="broadcast-text">
+          <span class="broadcast-icon">💬</span>
+          <div>
+            <strong>Ainda explorando?</strong>
+            <span>Receba dicas sobre cuidados faciais e novidades da clínica direto no seu WhatsApp.</span>
+          </div>
+        </div>
+        <a class="broadcast-btn" href="https://wa.me/556798186603?text=Ol%C3%A1%2C%20gostaria%20de%20receber%20dicas%20sobre%20harmoniza%C3%A7%C3%A3o%20facial%20e%20novidades%20da%20cl%C3%ADnica." target="_blank" rel="noopener" data-event="whatsapp_broadcast">
+          Quero receber →
+        </a>
+      </div>
+    </div>
 
     <!-- SOBRE -->
     <section id="sobre">
@@ -921,22 +959,6 @@
     </div>
   </section>
 
-  <!-- FAIXA LISTA DE TRANSMISSÃO -->
-  <div class="broadcast-strip">
-    <div class="container broadcast-inner">
-      <div class="broadcast-text">
-        <span class="broadcast-icon">💬</span>
-        <div>
-          <strong>Ainda explorando?</strong>
-          <span>Receba dicas sobre cuidados faciais e novidades da clínica direto no seu WhatsApp.</span>
-        </div>
-      </div>
-      <a class="broadcast-btn" href="https://wa.me/556798186603?text=Ol%C3%A1%2C%20gostaria%20de%20receber%20dicas%20sobre%20harmoniza%C3%A7%C3%A3o%20facial%20e%20novidades%20da%20cl%C3%ADnica." target="_blank" rel="noopener" data-event="whatsapp_broadcast">
-        Quero receber →
-      </a>
-    </div>
-  </div>
-
   <footer>
     <div class="container footer-grid">
       <span>© 2026 Dra. Mariana Leite. Todos os direitos reservados.</span>
@@ -961,6 +983,12 @@
     <span class="wa-label">Agendar pelo WhatsApp</span>
   </a>
 
+</div>
+
+<!-- Banner LGPD -->
+<div class="lgpd-banner" id="lgpdBanner">
+  <p>Usamos cookies e Google Analytics para entender como o site é utilizado e melhorar sua experiência. Nenhum dado pessoal é compartilhado com terceiros. <a href="#politica-privacidade">Política de Privacidade</a></p>
+  <button class="lgpd-accept" id="lgpdAccept">Entendi</button>
 </div>
 
 <script>
@@ -1010,6 +1038,30 @@
     el.classList.add('fade-in');
     el.style.transitionDelay = (i % 4) * 70 + 'ms';
     observer.observe(el);
+  });
+
+  // ── GA4 eventos de conversão ──
+  document.querySelectorAll('[data-event]').forEach(el => {
+    el.addEventListener('click', () => {
+      const event = el.getAttribute('data-event');
+      if (typeof gtag !== 'undefined') {
+        gtag('event', event, { event_category: 'whatsapp', event_label: event });
+      }
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Contact', { content_name: event });
+      }
+    });
+  });
+
+  // ── Banner LGPD ──
+  const lgpdBanner = document.getElementById('lgpdBanner');
+  const lgpdAccept = document.getElementById('lgpdAccept');
+  if (localStorage.getItem('lgpd_ok')) {
+    lgpdBanner.classList.add('hidden');
+  }
+  lgpdAccept.addEventListener('click', () => {
+    localStorage.setItem('lgpd_ok', '1');
+    lgpdBanner.classList.add('hidden');
   });
 </script>
 </body>

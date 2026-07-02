@@ -85,6 +85,8 @@
   }
   </script>
 
+  <link rel="canonical" href="https://dramarileite.com.br/profissionais.html" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -261,6 +263,27 @@
     .mini-list { display: grid; gap: 12px; margin-top: 22px; }
     .mini-list li { list-style: none; display: flex; align-items: flex-start; gap: 10px; color: rgba(245,244,239,0.74); line-height: 1.65; font-size: 15px; }
     .mini-list li::before { content: "✓"; color: var(--stone); font-weight: 700; margin-top: 1px; flex-shrink: 0; }
+
+    /* ── Depoimentos de alunos ── */
+    .student-review-section { border-top: 1px solid rgba(226,213,195,0.12); }
+    .student-reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .student-review-card { border: 1px solid rgba(226,213,195,0.22); background: rgba(245,244,239,0.06); border-radius: 26px; padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+    .sq-stars { color: #F5C842; font-size: 15px; letter-spacing: 1px; }
+    .sq-text { color: rgba(245,244,239,0.78); font-size: 15px; line-height: 1.72; flex: 1; font-style: italic; }
+    .sq-author { display: flex; align-items: center; gap: 12px; }
+    .sq-avatar { width: 40px; height: 40px; border-radius: 50%; background: rgba(226,213,195,0.20); border: 1px solid rgba(226,213,195,0.30); color: var(--stone); font-weight: 600; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .sq-author strong { display: block; color: var(--champagne-bg); font-size: 14px; }
+    .sq-author span { display: block; color: rgba(245,244,239,0.54); font-size: 12px; margin-top: 2px; }
+    @media (max-width: 980px) { .student-reviews-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 620px) { .student-reviews-grid { grid-template-columns: 1fr; } }
+
+    /* ── Banner LGPD ── */
+    .lgpd-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; background: rgba(40,50,30,0.97); backdrop-filter: blur(8px); border-top: 1px solid rgba(226,213,195,0.16); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; color: rgba(245,244,239,0.82); font-size: 13px; line-height: 1.6; }
+    .lgpd-banner.hidden { display: none; }
+    .lgpd-banner p { flex: 1; min-width: 240px; margin: 0; }
+    .lgpd-banner p a { color: var(--stone); text-decoration: underline; text-underline-offset: 3px; }
+    .lgpd-accept { background: var(--stone); color: var(--green-deep); border: none; border-radius: 999px; padding: 10px 22px; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; flex-shrink: 0; transition: background 0.2s; }
+    .lgpd-accept:hover { background: #F5F4EF; }
 
     /* ── FAQ ── */
     .faq-section { background: rgba(245,244,239,0.04); border-top: 1px solid rgba(226,213,195,0.12); border-bottom: 1px solid rgba(226,213,195,0.12); }
@@ -633,6 +656,30 @@
     </div>
   </section>
 
+  <!-- DEPOIMENTO DE ALUNO -->
+  <section class="student-review-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="label">Quem já passou pela formação</span>
+        <h2>O que dizem os profissionais.</h2>
+      </div>
+      <div class="student-reviews-grid">
+        <!-- Adicione depoimentos reais de alunos aqui -->
+        <div class="student-review-card fade-in">
+          <div class="sq-stars">★★★★★</div>
+          <p class="sq-text">"Depoimento real de aluno — adicione aqui o relato de quem já fez a Mentoria VIP, Day Clinic ou curso presencial."</p>
+          <div class="sq-author">
+            <div class="sq-avatar">A</div>
+            <div>
+              <strong>Nome do Profissional</strong>
+              <span>Biomédica · Cidade — UF</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section id="faq" class="faq-section">
     <div class="container">
@@ -716,6 +763,12 @@
     <span class="wa-label">Falar sobre formações</span>
   </a>
 
+<!-- Banner LGPD -->
+<div class="lgpd-banner" id="lgpdBanner">
+  <p>Usamos cookies e Google Analytics para entender como o site é utilizado. Nenhum dado pessoal é compartilhado com terceiros. <a href="index.html#politica-privacidade">Política de Privacidade</a></p>
+  <button class="lgpd-accept" id="lgpdAccept">Entendi</button>
+</div>
+
 <script>
   // ── Menu mobile ──
   const hamburger      = document.getElementById('hamburger');
@@ -767,6 +820,28 @@
   document.querySelectorAll('.fade-in').forEach((el, i) => {
     el.style.transitionDelay = (i % 3) * 80 + 'ms';
     observer.observe(el);
+  });
+
+  // ── GA4 eventos de conversão ──
+  document.querySelectorAll('[data-event]').forEach(el => {
+    el.addEventListener('click', () => {
+      const event = el.getAttribute('data-event');
+      if (typeof gtag !== 'undefined') {
+        gtag('event', event, { event_category: 'whatsapp', event_label: event });
+      }
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Contact', { content_name: event });
+      }
+    });
+  });
+
+  // ── Banner LGPD ──
+  const lgpdBanner = document.getElementById('lgpdBanner');
+  const lgpdAccept = document.getElementById('lgpdAccept');
+  if (localStorage.getItem('lgpd_ok')) lgpdBanner.classList.add('hidden');
+  lgpdAccept.addEventListener('click', () => {
+    localStorage.setItem('lgpd_ok', '1');
+    lgpdBanner.classList.add('hidden');
   });
 </script>
 </body>
