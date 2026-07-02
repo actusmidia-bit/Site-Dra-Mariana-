@@ -421,6 +421,38 @@
     }
     .scarcity-patient::before { content: '⌁'; flex-shrink: 0; font-size: 16px; }
 
+    /* ── Protocolos ── */
+    .protocols-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .protocol-card {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.58);
+      border-radius: 26px; padding: 28px 24px;
+      box-shadow: 0 8px 28px rgba(75,66,58,0.05);
+      display: flex; flex-direction: column; gap: 10px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .protocol-card:hover { transform: translateY(-4px); box-shadow: 0 16px 44px rgba(75,66,58,0.10); }
+    .protocol-num {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 13px; letter-spacing: 3px;
+      color: var(--rose); text-transform: uppercase;
+    }
+    .protocol-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 26px; font-weight: 500;
+      color: var(--green-deep); line-height: 1.1;
+    }
+    .protocol-card p {
+      color: var(--text-soft); font-size: 14px;
+      line-height: 1.72; flex: 1;
+    }
+    @media (max-width: 980px) { .protocols-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 620px) { .protocols-grid { grid-template-columns: 1fr; } }
+
     /* ── Como funciona (Avaliação+Método unificados) ── */
     .consultation-box {
       border-radius: 36px; border: 1px solid rgba(226,213,195,0.66);
@@ -619,7 +651,7 @@
       </a>
       <nav class="menu" aria-label="Menu principal">
         <a href="#sobre">Sobre</a>
-        <a href="#pacientes">Tratamentos</a>
+        <a href="#protocolos">Protocolos</a>
         <a href="#resultados">Resultados</a>
         <a href="#contato">Contato</a>
         <a href="profissionais.html" style="color:var(--green-main);font-weight:500;">Sou profissional →</a>
@@ -634,7 +666,7 @@
   <nav class="mobile-nav" id="mobileNav" aria-label="Menu mobile">
     <button class="mobile-nav-close" id="mobileNavClose" aria-label="Fechar menu">✕</button>
     <a href="#sobre"         class="mobile-link">Sobre</a>
-    <a href="#pacientes"     class="mobile-link">Tratamentos</a>
+    <a href="#protocolos"    class="mobile-link">Protocolos</a>
     <a href="#resultados"    class="mobile-link">Resultados</a>
     <a href="#contato"       class="mobile-link">Contato</a>
     <a href="profissionais.html" class="mobile-link" style="color:var(--green-main);">Sou profissional →</a>
@@ -808,6 +840,52 @@
         </div>
         <div class="hero-actions" style="margin-top:28px;">
           <a class="btn btn-primary" href="https://wa.me/556798186603?text=Ol%C3%A1%2C%20gostaria%20de%20entender%20o%20que%20%C3%A9%20certo%20para%20mim%20e%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener" data-event="whatsapp_pacientes">Entender o que é certo para mim</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROTOCOLOS -->
+    <section id="protocolos">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">Protocolos disponíveis</span>
+          <h2>O que é feito aqui.</h2>
+          <p class="section-text">Cada protocolo parte de uma avaliação. A indicação depende do seu rosto, da sua queixa e do seu momento — não de um cardápio fixo.</p>
+        </div>
+        <div class="protocols-grid">
+          <div class="protocol-card fade-in">
+            <span class="protocol-num">01</span>
+            <h3>Harmonização Full Face</h3>
+            <p>Planejamento facial completo que trabalha o rosto como um todo: contorno, proporção, volume e sustentação. Para quem busca resultado integrado e natural.</p>
+          </div>
+          <div class="protocol-card fade-in">
+            <span class="protocol-num">02</span>
+            <h3>Toxina Botulínica</h3>
+            <p>Indicada para linhas de expressão, sobrancelha caída, bruxismo e hiperidrose. Resultado sutil e progressivo, sem alterar a expressão natural do rosto.</p>
+          </div>
+          <div class="protocol-card fade-in">
+            <span class="protocol-num">03</span>
+            <h3>Preenchimento com Ácido Hialurônico</h3>
+            <p>Para restaurar volume, definir contornos e suavizar sulcos. Aplicado com critério técnico para manter a identidade do rosto.</p>
+          </div>
+          <div class="protocol-card fade-in">
+            <span class="protocol-num">04</span>
+            <h3>Bioestimulador de Colágeno</h3>
+            <p>Estimula a produção natural de colágeno para melhorar firmeza, textura e qualidade da pele ao longo do tempo. Indicado para rejuvenescimento progressivo.</p>
+          </div>
+          <div class="protocol-card fade-in">
+            <span class="protocol-num">05</span>
+            <h3>Qualidade de Pele</h3>
+            <p>Protocolos para hidratação profunda, luminosidade e uniformidade. Pele saudável é a base de qualquer resultado estético bem-feito.</p>
+          </div>
+          <div class="protocol-card fade-in">
+            <span class="protocol-num">06</span>
+            <h3>Rejuvenescimento Facial</h3>
+            <p>Combinação de protocolos adaptada para cada fase: dos primeiros sinais até tratamentos mais completos de restauração e sustentação do rosto.</p>
+          </div>
+        </div>
+        <div class="hero-actions" style="margin-top:36px; justify-content:center;">
+          <a class="btn btn-primary" href="https://wa.me/556798186603?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20qual%20protocolo%20%C3%A9%20indicado%20para%20mim." target="_blank" rel="noopener" data-event="whatsapp_protocolos">Descobrir qual protocolo é para mim</a>
         </div>
       </div>
     </section>
