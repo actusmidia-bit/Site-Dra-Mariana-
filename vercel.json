@@ -1,12 +1,5 @@
 {
   "cleanUrls": true,
-  "redirects": [
-    {
-      "source": "/profissionais",
-      "destination": "/profissionais.html",
-      "permanent": false
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
